@@ -5,7 +5,7 @@ entity sbox is
 	Port (rst, clk : in STD_LOGIC;
 	      in_byte  : in STD_LOGIC_VECTOR (7 downto 0);
 	      out_byte : out STD_LOGIC_VECTOR (7 downto 0));
-end subBytes;
+end sbox;
 
 architecture behavioural of sbox is
 
