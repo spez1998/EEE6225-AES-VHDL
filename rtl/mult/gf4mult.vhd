@@ -23,9 +23,5 @@ architecture struct of gf4mult is
         
                                    
         
-        
-        process(inByte) begin
-            
-            
-        end process;
+    
     end struct;
