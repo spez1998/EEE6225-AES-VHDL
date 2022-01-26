@@ -12,4 +12,4 @@ architecture struct of lambda is
         outQ(2) <= (inQ(3) xor inQ(1)) xor (inQ(2) xor inQ(0));
         outQ(1) <= inQ(3);
         outQ(0) <= inQ(2);
-end struct;
+    end struct;

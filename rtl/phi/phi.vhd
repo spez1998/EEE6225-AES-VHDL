@@ -10,4 +10,4 @@ architecture struct of phi is
     begin
         outQ(1) <= inQ(1) xor inQ(0);
         outQ(0) <= inQ(1);
-end struct;
+    end struct;

@@ -28,4 +28,4 @@ architecture struct of gf4mult is
             
             
         end process;
-end struct;
+    end struct;
