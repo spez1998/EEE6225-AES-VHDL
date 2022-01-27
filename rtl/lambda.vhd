@@ -2,8 +2,8 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity lambda is
-        port(inQ  : in std_logic_vector (3 downto 0);
-             outQ : out std_logic_vector (3 downto 0));
+        port(inNib  : in std_logic_vector (3 downto 0);
+             outNib : out std_logic_vector (3 downto 0));
 end lambda;
 
 architecture struct of lambda is
