@@ -42,7 +42,7 @@ architecture struct of gf4mult is
                                    inNib(1) => gf2mult2_b1,
                                    inNib(0) => gf2mult2_b0,
                                    outNib => gf2mult2_out);
-        gfmult3: gf2mult port map(inNib(3 downto 2) => inByte(5 downto 4),
+        gf2mult3: gf2mult port map(inNib(3 downto 2) => inByte(5 downto 4),
                                   inNib(1 downto 0) => inByte(1 downto 0),
                                   outNib => gf2mult3_out);
                                    
