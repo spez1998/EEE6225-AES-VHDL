@@ -4,7 +4,7 @@ use IEEE.std_logic_1164.all;
 entity squarer is
         port(inNib  : in std_logic_vector (3 downto 0);
              outNib : out std_logic_vector (3 downto 0));
-end phi;
+end squarer;
 
 architecture struct of squarer is
     begin
