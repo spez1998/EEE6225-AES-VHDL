@@ -24,4 +24,4 @@ architecture behav of affine is
                       inByte(0) xor 1;
         outByte(0) <= inByte(7) xor inByte(6) xor inByte(5) xor inByte(4) xor
                       inByte(0) xor 1;
-    end behav;
+end behav;

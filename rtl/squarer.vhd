@@ -12,4 +12,4 @@ architecture struct of squarer is
         outNib(2) <= inNib(3) xor inNib(2);
         outNib(1) <= inNib(2) xor inNib(1);
         outNib(0) <= (inNib(1) xor inNib(0)) xor inNib(3);
-    end struct;
+end struct;

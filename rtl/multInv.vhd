@@ -66,4 +66,4 @@ architecture struct of multInv is
         outByte(7 downto 4) <= gf4mult2_out;
         outByte(3 downto 0) <= gf4mult3_out;
 
-    end struct;
+end struct;

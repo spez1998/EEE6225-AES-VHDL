@@ -10,4 +10,4 @@ architecture struct of gf2mult is
     begin
         outNib(1) <= ((inNib(3) xor inNib(2)) and (inNib(1) xor inNib(0))) xor (inNib(2) and inNib(0));
         outNib(0) <= (inNib(3) and inNib(1)) xor (inNib(2) and inNib(0));
-    end struct;
+end struct;

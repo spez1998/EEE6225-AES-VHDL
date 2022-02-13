@@ -20,4 +20,4 @@ architecture behav of inverseIso is
         outByte(5) <= inByte(1) xor inByte(5) xor inByte(6);
         outByte(6) <= inByte(2) xor inByte(6);
         outByte(7) <= inByte(1) xor inByte(5) xor inByte(6) xor inByte(7);
-    end behav;
+end behav;

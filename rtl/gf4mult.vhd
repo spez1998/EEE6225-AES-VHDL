@@ -54,4 +54,4 @@ architecture struct of gf4mult is
         outByte(1) <= phi_out(1) xor gf2mult3_out(1);
         outByte(0) <= phi_out(0) xor gf2mult3_out(0);
     
-    end struct;
+end struct;

@@ -16,4 +16,4 @@ architecture behav of inverseAffine is
         outByte(2) <= inByte(7) xor inByte(4) xor inByte(1) xor 0;
         outByte(1) <= inByte(6) xor inByte(3) xor inByte(0) xor 1;
         outByte(0) <= inByte(7) xor inByte(5) xor inByte(2) xor 1;
-    end behav;
+end behav;

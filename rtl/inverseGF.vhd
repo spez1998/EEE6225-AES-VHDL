@@ -33,4 +33,4 @@ architecture behav of gfInv is
                     (xin(2) and xIn(1) and xIn(0)) xor
                     xIn(1) xor
                     xIn(0);
-    end behav;
+end behav;

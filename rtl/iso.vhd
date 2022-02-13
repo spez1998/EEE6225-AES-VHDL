@@ -19,4 +19,4 @@ architecture behav of iso is
                       inByte(1);
         outByte(1) <= inByte(6) xor inByte(4) xor inByte(1);
         outByte(0) <= inByte(6) xor inByte(1) xor inByte(0);
-    end behav;
+end behav;
