@@ -16,11 +16,14 @@ architecture sim of subbytes_tb is
     	);
 	end component;
 
+    file testVectors: text;
+    file testResults: text;
+
     signal inByte, outByte: std_logic_vector(7 downto 0);
 
 	begin
 
-    	dut: pthru port map(inByte => inByte, outByte => outByte);
+    	dut: top port map(inByte => inByte, outByte => outByte);
 
         PROC_DRIVER: process
         begin
