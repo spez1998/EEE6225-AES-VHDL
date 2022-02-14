@@ -20,7 +20,7 @@ architecture sim of subbytes_tb is
 
     	dut: pthru port map(inByte => inByte, outByte => outByte);
 
-        PROC_SEQUENCE: process
+        PROC_DRIVER: process
         begin
 
             for j in 0 to 2**inByte'length - 1 loop
@@ -29,7 +29,28 @@ architecture sim of subbytes_tb is
             end loop;
             report "Test: OK";
             finish;
-
         end process;
+
+        PROC_CHECKER : process
+        variable prev : std_logic_vector(outByte'range);
+        variable count : integer;
+            begin
+            wait on outByte;
+            
+            prev := outByte;
+            
+            -- Wait for all delta cycles to propagate
+            wait for 1 ns;
+            
+            -- TODO: 
+            -- - Read from sBox reference file
+            -- - Compare output to current number's sBox value
+            -- - Collect errors 
+            
+            assert count = 1
+                report integer'image(count) & " bits changed, should have been 1"
+                severity failure;
+            
+            end process;
 
 end sim;
