@@ -1,12 +1,12 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 
-entity gfInv is
+entity inverseGF is
     port(xIn  : in std_logic_vector (3 downto 0);
          xOut : out std_logic_vector (3 downto 0));
-end gfInv;
+end inverseGF;
 
-architecture behav of gfInv is
+architecture behav of inverseGF is
     begin
         xOut(3) <= xIn(3) xor
                     (xIn(3) and xIn(2) and xIn(1)) xor
