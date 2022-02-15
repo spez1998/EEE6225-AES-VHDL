@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity iso is
-    port(inByte  : in std_logic_vector(7 downto 0),
+    port(inByte  : in std_logic_vector(7 downto 0);
          outByte : out std_logic_vector(7 downto 0));
 end iso;
 

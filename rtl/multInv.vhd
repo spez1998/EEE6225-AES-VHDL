@@ -46,7 +46,7 @@ architecture struct of multInv is
         gf4mult1_in(6) <= inByte(6) xor inByte(2);
         gf4mult1_in(5) <= inByte(5) xor inByte(1);
         gf4mult1_in(4) <= inByte(4) xor inByte(0);
-        gf4mult1_in(3 downto 0) <= inByte(3 downto 0)
+        gf4mult1_in(3 downto 0) <= inByte(3 downto 0);
         gf4mult1: gf4mult port map(inByte => gf4mult1_in,
                                    outByte => gf4mult1_out);
         
