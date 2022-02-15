@@ -46,7 +46,7 @@ architecture struct of gf4mult is
                                   inNib(1 downto 0) => inByte(1 downto 0),
                                   outNib => gf2mult3_out);
                                    
-        phi: phi port map(inQ => gf2mult1_out,
+        phi1: phi port map(inQ => gf2mult1_out,
                           outQ => phi_out);
 
         outByte(3) <= gf2mult2_out(1) xor gf2mult3_out(1);
