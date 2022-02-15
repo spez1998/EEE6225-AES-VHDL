@@ -56,7 +56,7 @@ architecture arch of top is
         multInv1: multInv port map(inByte => multIn, outByte => multOut);
 
         process(inByte, enc_dec) begin
-            if(enc_dec = "0") then
+            if(enc_dec = '0') then
                 isoIn  <= inByte;
                 outByte <= AffineOut;
             else
