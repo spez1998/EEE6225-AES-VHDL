@@ -27,6 +27,7 @@ architecture struct of multInv is
              xOut : out std_logic_vector (3 downto 0));
     end component;
 
+    signal squarer_in:    std_logic_vector(3 downto 0);
     signal lambda_in:     std_logic_vector(3 downto 0);
     signal lambda_out:    std_logic_vector(3 downto 0);
     signal gf4mult1_in:   std_logic_vector(7 downto 0);
@@ -39,7 +40,8 @@ architecture struct of multInv is
     signal gf4mult3_out:  std_logic_vector(3 downto 0);
 
     begin
-        squarer1: squarer port map(inNib => inByte(7 downto 4), outNib => lambda_in);
+        squarer_in <= inByte(7 downto 4);
+        squarer1: squarer port map(inNib => squarer_in, outNib => lambda_in);
         lambda1: lambda port map(inNib => lambda_in, outNib => lambda_out);
         
         gf4mult1_in(7) <= inByte(7) xor inByte(3);
@@ -56,7 +58,7 @@ architecture struct of multInv is
         inverseGF_in(0) <= lambda_out(0) xor gf4mult1_out(0);
         inverseGF1: inverseGF port map(xIn => inverseGF_in, xOut => inverseGF_out);
 
-        gf4mult2_in(7 downto 4) <= inByte(7 downto 4);
+        gf4mult2_in(7 downto 4) <= squarer_in;
         gf4mult2_in(3 downto 0) <= inverseGF_out;
         gf4mult2: gf4mult port map(inByte => gf4mult2_in, outByte => gf4mult2_out);
         gf4mult3_in(7 downto 4) <= inverseGF_out;
