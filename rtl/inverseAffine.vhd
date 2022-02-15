@@ -2,8 +2,8 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity inverseAffine is
-    port(inByte  : std_logic_vector(7 downto 0);
-         outByte : std_logic_vector(7 downto 0));
+    port(inByte: in std_logic_vector(7 downto 0);
+         outByte: out std_logic_vector(7 downto 0));
 end inverseAffine;
 
 architecture behav of inverseAffine is

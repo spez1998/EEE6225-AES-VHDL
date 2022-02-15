@@ -7,9 +7,9 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity top is
-    port(inByte:  std_logic_vector(7 downto 0);
-         outByte: std_logic_vector(7 downto 0);
-         enc_dec: std_logic); -- 0 for encode, 1 for decode
+    port(inByte: in std_logic_vector(7 downto 0);
+         outByte: out std_logic_vector(7 downto 0);
+         enc_dec: in std_logic); -- 0 for encode, 1 for decode
 end entity;
 
 architecture arch of top is
@@ -55,8 +55,8 @@ architecture arch of top is
         inverseIso1: inverseIso port map(inByte => multOut, outByte => invIsoOut);
         multInv1: multInv port map(inByte => multIn, outByte => multOut);
 
-        process(inByte, outByte, enc_dec) begin
-            if(enc_dec == "0") then
+        process(inByte, enc_dec) begin
+            if(enc_dec = "0") then
                 isoIn  <= inByte;
                 outByte <= AffineOut;
             else
