@@ -49,11 +49,11 @@ architecture arch of top is
 
     begin
         
-        inverseAffine: inverseAffine port map(inByte => inByte, outByte => invAffineOut);
-        affine: affine port map(inByte => invIsoOut, outByte => affineOut);
-        iso: iso port map(inByte => isoIn, outByte => multIn);
-        inverseIso: inverseIso port map(inByte => multOut, outByte => invIsoOut);
-        multInv: multInv port map(inByte => multIn, outByte => multOut);
+        inverseAffine1: inverseAffine port map(inByte => inByte, outByte => invAffineOut);
+        affine1: affine port map(inByte => invIsoOut, outByte => affineOut);
+        iso1: iso port map(inByte => isoIn, outByte => multIn);
+        inverseIso1: inverseIso port map(inByte => multOut, outByte => invIsoOut);
+        multInv1: multInv port map(inByte => multIn, outByte => multOut);
 
         process(inByte, outByte, enc_dec) begin
             if(enc_dec == "0") then
