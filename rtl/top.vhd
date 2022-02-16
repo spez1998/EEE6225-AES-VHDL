@@ -9,7 +9,8 @@ use IEEE.std_logic_1164.all;
 entity top is
     port(inByte: in std_logic_vector(7 downto 0);
          outByte: out std_logic_vector(7 downto 0);
-         enc_dec: in std_logic); -- 0 for encode, 1 for decode
+         enc_dec: in std_logic;
+         reset: in std_logic); -- 0 for encode, 1 for decode
 end entity;
 
 architecture arch of top is
@@ -48,16 +49,6 @@ architecture arch of top is
     signal affineOut:    std_logic_vector(7 downto 0);
 
     begin
-        
-        process(inByte, enc_dec) begin
-            if(enc_dec = '0') then
-                isoIn  <= inByte;
-                outByte <= AffineOut;
-            else
-                isoIn  <= invAffineOut;
-                outByte <= invIsoOut;
-            end if;
-        end process;
 
         inverseAffine1: inverseAffine port map(inByte => inByte, outByte => invAffineOut);
         affine1: affine port map(inByte => invIsoOut, outByte => affineOut);
@@ -65,4 +56,9 @@ architecture arch of top is
         inverseIso1: inverseIso port map(inByte => multOut, outByte => invIsoOut);
         multInv1: multInv port map(inByte => multIn, outByte => multOut);
 
+        isoIn <= inByte when enc_dec = '0' else 
+                 invAffineOut;
+        outByte <= (others => '0') when reset = '1' else
+                    affineOut when enc_dec = '0' else
+                    invIsoOut;
 end arch;
