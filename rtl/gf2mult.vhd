@@ -1,3 +1,9 @@
+-- Hardware S-Box implementation for AES-128
+-- Author: Sujit Malde
+-- Filename: gf2mult.vhd
+-- Entity name: gf2mult
+-- Description: Multiply two elements of GF(2^2) in that field
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 

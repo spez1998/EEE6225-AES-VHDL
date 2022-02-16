@@ -1,3 +1,9 @@
+-- Hardware S-Box implementation for AES-128
+-- Author: Sujit Malde
+-- Filename: gf4mult.vhd
+-- Entity name: gf4mult
+-- Description: Multiply two elements of GF(2^4) in that field
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 

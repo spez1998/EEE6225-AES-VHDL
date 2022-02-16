@@ -1,3 +1,9 @@
+-- Hardware S-Box implementation for AES-128
+-- Author: Sujit Malde
+-- Filename: multInv.vhd
+-- Entity name: multInv
+-- Description: Calculate multiplicative inverse of an element in GF(2^8)
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 

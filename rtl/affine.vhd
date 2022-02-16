@@ -1,3 +1,9 @@
+-- Hardware S-Box implementation for AES-128
+-- Author: Sujit Malde
+-- Filename: affine.vhd
+-- Entity name: affine
+-- Description: Perform Rijndael subBytes affine transform on GF(2^8) element
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 

@@ -1,7 +1,8 @@
 -- Hardware S-Box implementation for AES-128
--- Input: one byte
--- Output: one byte
--- Delay: one clock cycle
+-- Author: Sujit Malde
+-- Filename: top.vhd
+-- Entity name: top
+-- Description: Perform Rijndael subBytes transform on a byte
 
 library IEEE;
 use IEEE.std_logic_1164.all;

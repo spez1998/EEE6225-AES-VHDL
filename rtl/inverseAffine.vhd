@@ -1,3 +1,9 @@
+-- Hardware S-Box implementation for AES-128
+-- Author: Sujit Malde
+-- Filename: inverseAffine.vhd
+-- Entity name: inverseAffine
+-- Description: Perform Rijndael subBytes inverse affine transform on GF(2^8) element
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 

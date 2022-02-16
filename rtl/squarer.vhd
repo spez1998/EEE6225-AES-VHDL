@@ -1,3 +1,9 @@
+-- Hardware S-Box implementation for AES-128
+-- Author: Sujit Malde
+-- Filename: squarer.vhd
+-- Entity name: squarer
+-- Description: Square an element of GF(2) in that field
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 

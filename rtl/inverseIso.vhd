@@ -1,3 +1,9 @@
+-- Hardware S-Box implementation for AES-128
+-- Author: Sujit Malde
+-- Filename: inverseIso.vhd
+-- Entity name: inverseIso
+-- Description: Map element of GF(2^4) to GF(2^8)
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 

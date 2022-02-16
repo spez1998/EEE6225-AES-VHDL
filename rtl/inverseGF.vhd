@@ -1,3 +1,9 @@
+-- Hardware S-Box implementation for AES-128
+-- Author: Sujit Malde
+-- Filename: inverseGF.vhd
+-- Entity name: inverseGF
+-- Description: Invert element of GF(2^4)
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 

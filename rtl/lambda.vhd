@@ -1,3 +1,9 @@
+-- Hardware S-Box implementation for AES-128
+-- Author: Sujit Malde
+-- Filename: lambda.vhd
+-- Entity name: lambda
+-- Description: Multiply element of GF(2^4) with a constant lambda
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 

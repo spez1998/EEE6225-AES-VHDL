@@ -1,3 +1,9 @@
+-- Hardware S-Box implementation for AES-128
+-- Author: Sujit Malde
+-- Filename: iso.vhd
+-- Entity name: iso
+-- Description: Map element of GF(2^8) to GF(2^4) composite field
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 
