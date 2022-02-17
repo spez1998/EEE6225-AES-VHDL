@@ -36,8 +36,14 @@ architecture sim of subbytes_tb is
     	dut: top port map(inByte => inByte, outByte => outByte, enc_dec => enc_dec, reset => reset);
 
         PROC_DRIVER: process
+        
+        variable vOline: line;
+
+
         begin
-            
+
+            file_open(testResults, "results.txt", write_mode);
+
             -- Reset test
             for j in 2 downto 0 loop
                 inByte <= std_logic_vector(to_unsigned(j, inByte'length));
@@ -56,6 +62,8 @@ architecture sim of subbytes_tb is
             for j in 0 to 2**inByte'length - 1 loop
                 inByte <= std_logic_vector(to_unsigned(j, inByte'length));
                 wait for 10 ns;
+                write(vOline, outByte, right, 8);
+                writeline(testResults, vOline);
             end loop;
             -- End encrypt test
             
@@ -64,10 +72,13 @@ architecture sim of subbytes_tb is
             for j in 0 to 2**inByte'length - 1 loop
                 inByte <= std_logic_vector(to_unsigned(j, inByte'length));
                 wait for 10 ns;
+                write(vOline, outByte, right, 8);
+                writeline(testResults, vOline);
             end loop;
             -- End decrypt test
                  
             report "All tests: OK";
+            file_close(testResults);
             finish;
         end process;
 end sim;
