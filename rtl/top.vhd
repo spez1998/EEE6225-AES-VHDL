@@ -51,12 +51,17 @@ architecture arch of top is
 
     begin
 
+        -- Create all necessary connections between sub-entities
         inverseAffine1: inverseAffine port map(inByte => inByte, outByte => invAffineOut);
         affine1: affine port map(inByte => invIsoOut, outByte => affineOut);
         iso1: iso port map(inByte => isoIn, outByte => multIn);
         inverseIso1: inverseIso port map(inByte => multOut, outByte => invIsoOut);
         multInv1: multInv port map(inByte => multIn, outByte => multOut);
 
+        -- Infer multiplexers at input and output stage
+        -- If encode, NO inverse affine before multInverse, YES affine after multInverse
+        -- If decode, YES inverse affine before multInverse, NO affine after multInverse
+        -- If reset, output 0x00
         isoIn <= inByte when enc_dec = '0' else 
                  invAffineOut;
         outByte <= (others => '0') when reset = '1' else
