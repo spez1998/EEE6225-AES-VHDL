@@ -23,14 +23,6 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
 
 entity AES_shiftrow is
         port ( 
@@ -49,7 +41,7 @@ architecture Behavioral of AES_shiftrow is
         Q : out STD_LOGIC_VECTOR (7 downto 0)
         );
         end component;
-        component Counter 
+        component controll 
         port ( 
         CLK, SCLR, SET: in std_logic;
         A : out STD_LOGIC_VECTOR (4 downto 0)
@@ -58,7 +50,16 @@ architecture Behavioral of AES_shiftrow is
         
         signal A: STD_LOGIC_VECTOR (4 downto 0);
 begin
-        SR_controll: Counter port map(A => A, SET => SET, CLK => CLK, SCLR => SCLR);
-        OUTDATA: c_shift_ram_0 port map(D => D, A => A, Q => Q, CLK => CLK, SCLR => SCLR);
+-----------------------------------------------------
+--        genrate A
+        SR_controll: controll port map(A => A, SET => SET, CLK => CLK, SCLR => SCLR); 
+-----------------------------------------------------   
+--        8 bit 25 register FIFO shifter
+--        input: 8bit data per clock 
+--        output: 8bit selected data per clock by doing the selection by changing A
         
+        OUTDATA: c_shift_ram_0 port map(D => D, A => A, Q => Qout, CLK => CLK, SCLR => SCLR);
+-----------------------------------------------------
+--      not sending data before the encrpty and decrpty start
+        Q <= (others => '0') when A = "11111" else Qout;        
 end Behavioral;
