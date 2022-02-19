@@ -37,15 +37,15 @@ architecture tb of AES_shiftrow_8bit_tb is
     end component;
     
         signal CLK :  STD_LOGIC := '0';
-        signal SCLR :  STD_LOGIC := '1';
-        signal SET :  STD_LOGIC := '0';
-        signal D :  STD_LOGIC_VECTOR (7 downto 0):= "00000000";
-        signal Q :  STD_LOGIC_VECTOR (7 downto 0);
+        signal SCLR :  STD_LOGIC := '1'; -- RESET
+        signal SET :  STD_LOGIC := '0'; --DATA INPUTED
+        signal D :  STD_LOGIC_VECTOR (7 downto 0):= "00000000";  -- INPUT
+        signal Q :  STD_LOGIC_VECTOR (7 downto 0); -- OUTPUT
 begin
     CLK <= not CLK after 10 ns;
     UUT : AES_shiftrow port map (CLK => CLK, SET => SET, SCLR => SCLR, D => D, Q => Q);
     tb1 : process
-        constant period: time := 20 ns;
+        constant period: time := 20 ns; -- ONE CLOCK CYCLE
         begin
             SCLR <= '0' after 50 ns;
             
@@ -64,7 +64,6 @@ begin
             D <= "00010001"; wait for period;
             D <= "00010010"; wait for period;
             D <= "00010011"; wait for period;
---            SET <= '1';
             D <= "00010100"; wait for period;
             D <= "00010101"; wait for period;
             D <= "00010110"; wait for period;
@@ -84,6 +83,7 @@ begin
             D <= "00010100"; wait for period;
             D <= "00010101"; wait for period;
             D <= "00010110"; wait for period;
+            SET <= '0';
             wait;
         end process;
 end tb;
