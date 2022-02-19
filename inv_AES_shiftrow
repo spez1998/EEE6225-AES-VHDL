@@ -1,0 +1,39 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use ieee.std_logic_unsigned.all;
+use ieee.std_logic_arith.all;
+
+entity inv_AES_shiftrow is
+        port ( 
+        CLK,SCLR,SET : in STD_LOGIC;
+        D : in STD_LOGIC_VECTOR (7 downto 0);
+        Q : out STD_LOGIC_VECTOR (7 downto 0));
+end inv_AES_shiftrow;
+
+architecture Behavioral of inv_AES_shiftrow is
+        component c_shift_ram_1 
+        port ( 
+        CLK : in STD_LOGIC;
+        SCLR : in STD_LOGIC;
+        D : in STD_LOGIC_VECTOR (7 downto 0);
+        A : in STD_LOGIC_VECTOR (4 downto 0);
+        Q : out STD_LOGIC_VECTOR (7 downto 0)
+        );
+        end component;
+        
+        component inv_counter 
+        port ( 
+        CLK, SCLR, SET: in std_logic;
+        A : out STD_LOGIC_VECTOR (4 downto 0)
+        );
+        end component;
+        
+        signal A: STD_LOGIC_VECTOR (4 downto 0);
+        signal Qout: STD_LOGIC_VECTOR (7 downto 0);
+begin
+        
+        inv_SR_controll: inv_counter port map(A => A, SET => SET, CLK => CLK, SCLR => SCLR);
+        inv_OUTDATA: c_shift_ram_1 port map(D => D, A => A, Q => Qout, CLK => CLK, SCLR => SCLR);
+        
+        Q <= (others => '0') when A = "11111" else Qout;
+end Behavioral;
