@@ -1,0 +1,66 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity inv_AES_shiftrow_8bit_tb is
+end inv_AES_shiftrow_8bit_tb;
+
+architecture tb of inv_AES_shiftrow_8bit_tb is
+    component inv_AES_shiftrow 
+        port ( 
+        CLK,SCLR,SET : in STD_LOGIC;
+        D : in STD_LOGIC_VECTOR (7 downto 0);
+        Q : out STD_LOGIC_VECTOR (7 downto 0));
+    end component;
+    
+        signal CLK :  STD_LOGIC := '0';
+        signal SCLR :  STD_LOGIC := '1';
+        signal SET :  STD_LOGIC := '0';
+        signal D :  STD_LOGIC_VECTOR (7 downto 0):= "00000000";
+        signal Q :  STD_LOGIC_VECTOR (7 downto 0);
+begin
+    CLK <= not CLK after 10 ns;
+    UUT : inv_AES_shiftrow port map (CLK => CLK, SET => SET, SCLR => SCLR, D => D, Q => Q);
+    tb1 : process
+        constant period: time := 20 ns;
+        begin
+            SCLR <= '0' after 50 ns;
+            
+           wait for 70 ns;
+            SET <= '1';
+          
+            D <= "00000001"; wait for period; --1
+            D <= "00000110"; wait for period; --6
+            D <= "00010001"; wait for period; --11
+            D <= "00010110"; wait for period; --16
+            D <= "00000101"; wait for period; --5
+            D <= "00010000"; wait for period; --10
+            D <= "00010101"; wait for period; --15
+            D <= "00000100"; wait for period; --4
+            D <= "00001001"; wait for period; --9
+            D <= "00010100"; wait for period; --14
+            D <= "00000011"; wait for period; --3
+            D <= "00001000"; wait for period; --8
+            D <= "00010011"; wait for period; --13
+            D <= "00000010"; wait for period; --2
+            D <= "00000111"; wait for period; --7
+            D <= "00010010"; wait for period; --12
+            D <= "00000001"; wait for period; --1
+            D <= "00000110"; wait for period; --6
+            D <= "00010001"; wait for period; --11
+            D <= "00010110"; wait for period; --16
+            D <= "00000101"; wait for period; --5
+            D <= "00010000"; wait for period; --10
+            D <= "00010101"; wait for period; --15
+            D <= "00000100"; wait for period; --4
+            D <= "00001001"; wait for period; --9
+            D <= "00010100"; wait for period; --14
+            D <= "00000011"; wait for period; --3
+            D <= "00001000"; wait for period; --8
+            D <= "00010011"; wait for period; --13
+            D <= "00000010"; wait for period; --2
+            D <= "00000111"; wait for period; --7
+            D <= "00010010"; wait for period; --12
+            SET <= '0';
+            wait;
+        end process;
+end tb;
