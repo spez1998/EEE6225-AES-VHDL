@@ -12,6 +12,7 @@ entity inverseAffine is
          outByte: out std_logic_vector(7 downto 0));
 end inverseAffine;
 
+-- Constant 00000101 taken from Rijndael AES specification
 architecture behav of inverseAffine is
     begin
         outByte(7) <= inByte(6) xor inByte(4) xor inByte(1) xor '0';

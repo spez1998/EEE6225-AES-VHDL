@@ -51,7 +51,7 @@ architecture arch of top is
 
     begin
 
-        -- Create all necessary connections between sub-entities
+        -- Create all necessary connections between main sub-entities
         inverseAffine1: inverseAffine port map(inByte => inByte, outByte => invAffineOut);
         affine1: affine port map(inByte => invIsoOut, outByte => affineOut);
         iso1: iso port map(inByte => isoIn, outByte => multIn);

@@ -12,6 +12,7 @@ entity multInv is
              outByte : out std_logic_vector (7 downto 0));
 end multInv;
 
+-- Connections between gf4mult, squarer, lambda transform and inverter
 architecture struct of multInv is
     component gf4mult
         port(inByte  : in std_logic_vector (7 downto 0);

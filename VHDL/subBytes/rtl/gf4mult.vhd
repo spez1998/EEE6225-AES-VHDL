@@ -12,6 +12,8 @@ entity gf4mult is
              outByte : out std_logic_vector (3 downto 0));
 end gf4mult;
 
+
+-- Connection between 3 gf2mults and phi constant transform
 architecture struct of gf4mult is
     component gf2mult
         port(inNib  : in std_logic_vector (3 downto 0);
