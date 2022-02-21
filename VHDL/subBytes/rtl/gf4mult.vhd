@@ -8,12 +8,12 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity gf4mult is
-        port(inByte  : in std_logic_vector (7 downto 0);
-             outByte : out std_logic_vector (3 downto 0));
+        port(inByte  : in std_logic_vector (7 downto 0);   -- Two 4-bit multiplicands
+             outByte : out std_logic_vector (3 downto 0)); -- 4-bit multiplication result
 end gf4mult;
 
 
--- Connection between 3 gf2mults and phi constant transform
+-- Connections between 3 gf2mults and phi constant transform
 architecture struct of gf4mult is
     component gf2mult
         port(inNib  : in std_logic_vector (3 downto 0);

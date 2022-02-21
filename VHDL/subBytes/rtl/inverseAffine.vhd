@@ -8,8 +8,8 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity inverseAffine is
-    port(inByte: in std_logic_vector(7 downto 0);
-         outByte: out std_logic_vector(7 downto 0));
+    port(inByte: in std_logic_vector(7 downto 0);    -- Input byte to transform
+         outByte: out std_logic_vector(7 downto 0)); -- Transformed output
 end inverseAffine;
 
 -- Constant 00000101 taken from Rijndael AES specification

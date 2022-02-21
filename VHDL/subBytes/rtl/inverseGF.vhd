@@ -8,8 +8,8 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity inverseGF is
-    port(xIn  : in std_logic_vector (3 downto 0);
-         xOut : out std_logic_vector (3 downto 0));
+    port(xIn  : in std_logic_vector (3 downto 0);   -- GF(2^4) element to invert
+         xOut : out std_logic_vector (3 downto 0)); -- Inverted GF(2^4) element
 end inverseGF;
 
 architecture behav of inverseGF is

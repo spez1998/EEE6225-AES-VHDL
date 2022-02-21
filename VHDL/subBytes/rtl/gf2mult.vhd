@@ -8,8 +8,8 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity gf2mult is
-        port(inNib  : in std_logic_vector (3 downto 0);
-             outNib : out std_logic_vector (1 downto 0));
+        port(inNib  : in std_logic_vector (3 downto 0);   -- Two 2-bit multiplicands
+             outNib : out std_logic_vector (1 downto 0)); -- 2-bit multiplication result
 end gf2mult;
 
 architecture struct of gf2mult is

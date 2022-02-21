@@ -2,14 +2,14 @@
 -- Author: Sujit Malde
 -- Filename: squarer.vhd
 -- Entity name: squarer
--- Description: Square an element of GF(2) in that field
+-- Description: Square an element of GF(2^4) in that field
 
 library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity squarer is
-        port(inNib  : in std_logic_vector (3 downto 0);
-             outNib : out std_logic_vector (3 downto 0));
+        port(inNib  : in std_logic_vector (3 downto 0);   -- GF(2^4) element in
+             outNib : out std_logic_vector (3 downto 0)); -- GF(2^4) element squared out
 end squarer;
 
 architecture struct of squarer is

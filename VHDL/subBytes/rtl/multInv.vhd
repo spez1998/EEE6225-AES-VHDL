@@ -8,8 +8,8 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity multInv is
-        port(inByte  : in std_logic_vector (7 downto 0);
-             outByte : out std_logic_vector (7 downto 0));
+        port(inByte  : in std_logic_vector (7 downto 0);   -- GF(2^8) element
+             outByte : out std_logic_vector (7 downto 0)); -- Inverted GF(2^8) element
 end multInv;
 
 -- Connections between gf4mult, squarer, lambda transform and inverter

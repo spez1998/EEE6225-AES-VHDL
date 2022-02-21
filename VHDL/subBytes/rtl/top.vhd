@@ -8,10 +8,10 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity top is
-    port(inByte: in std_logic_vector(7 downto 0);
-         outByte: out std_logic_vector(7 downto 0);
-         enc_dec: in std_logic;
-         reset: in std_logic); -- 0 for encode, 1 for decode
+    port(inByte: in std_logic_vector(7 downto 0);   -- Input byte
+         outByte: out std_logic_vector(7 downto 0); -- Output byte transformed by sBox
+         enc_dec: in std_logic; -- 0 for encode, 1 for decode
+         reset: in std_logic); -- Connect to global reset line
 end entity;
 
 architecture arch of top is
