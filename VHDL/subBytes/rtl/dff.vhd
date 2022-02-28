@@ -8,10 +8,10 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 entity dff is
-    port(clk : in std_logic;
-         rst : in std_logic;
-         d   : in std_logic_vector(7 downto 0);
-         q   : out std_logic_vector(7 downto 0));
+    port(d   : in std_logic_vector(7 downto 0);
+         q   : out std_logic_vector(7 downto 0);
+         clk : in std_logic;
+         rst : in std_logic);
 end entity;
 
 architecture inf of dff is
