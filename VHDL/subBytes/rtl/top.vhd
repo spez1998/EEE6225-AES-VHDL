@@ -12,7 +12,7 @@ entity top is
          outByte: out std_logic_vector(7 downto 0); -- Output byte transformed by sBox
          enc_dec: in std_logic; -- 0 for encode, 1 for decode
          clk: in std_logic; -- Clock for pipelining flip-flops
-         reset: in std_logic); -- Connect to global reset line
+         rst: in std_logic); -- Connect to global reset line
 end entity;
 
 architecture arch of top is
@@ -85,7 +85,7 @@ architecture arch of top is
         -- If reset, output 0x00
         isoIn <= inByte when enc_dec = '0' else 
                  invAffineOut_q;
-        outByte <= (others => '0') when reset = '1' else
+        outByte <= (others => '0') when rst = '1' else
                     affineOut_q when enc_dec = '0' else
                     invIsoOut_q;
 end arch;
