@@ -1,24 +1,3 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 2021/12/07 11:35:17
--- Design Name: 
--- Module Name: AES_shiftrow - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use ieee.std_logic_unsigned.all;
@@ -32,6 +11,7 @@ entity AES_shiftrow is
 end AES_shiftrow;
 
 architecture Behavioral of AES_shiftrow is
+        
         component c_shift_ram_0 
         port ( 
         CLK : in STD_LOGIC;
@@ -41,6 +21,7 @@ architecture Behavioral of AES_shiftrow is
         Q : out STD_LOGIC_VECTOR (7 downto 0)
         );
         end component;
+        
         component controll 
         port ( 
         CLK, SCLR, SET: in std_logic;
@@ -49,6 +30,7 @@ architecture Behavioral of AES_shiftrow is
         end component;
         
         signal A: STD_LOGIC_VECTOR (4 downto 0);
+
 begin
 -----------------------------------------------------
 --        genrate A
