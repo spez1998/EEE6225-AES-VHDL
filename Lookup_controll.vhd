@@ -1,4 +1,3 @@
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use ieee.std_logic_unsigned.all;
@@ -10,8 +9,10 @@ entity Lookup_controll is
 end Lookup_controll;
 
 architecture Behavioral of Lookup_controll is
-    signal LOOKUP :  std_logic_vector( 3 downto 0):= "0000";
-    signal delay :  std_logic_vector( 3 downto 0) := "1100";
+  
+    signal LOOKUP :  std_logic_vector( 3 downto 0):= "0000"; -- 4 bits cases count for 16 cases 
+    signal delay :  std_logic_vector( 3 downto 0) := "1100"; -- set for the initial 13 cycles delay
+
 begin
     process (CLK) begin
         if set = '0' then
