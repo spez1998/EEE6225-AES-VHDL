@@ -55,11 +55,12 @@ begin
                         when "1111"=>
                         A <= "10000";
                         when others =>
-                        A <= "11111";
-                        delay <= "1100";
                     end case; 
                     if (set /= '0') or (LOOKUP /= "0000") then
                     LOOKUP <= LOOKUP + 1;
+                    end if;
+                    if (set = '0') and (LOOKUP = "0011") then
+                        A <= "11111";  
                     end if;
                 end if;
         end if;
