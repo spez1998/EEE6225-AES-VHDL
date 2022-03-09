@@ -15,15 +15,12 @@ architecture Behavioral of Lookup_controll is
 
 begin
     process (CLK) begin
-        if set = '0' then
-            delay <= "1100";
-        end if;
         if rising_edge(CLK) then
                 if (delay /= 0) and set = '1' then
                     delay <= delay - 1;
                     A <= "11111";                  
                 end if;
-                if (delay = 0) then 
+                if (delay = 0 or delay = 1) then 
                     case LOOKUP is
                         when "0000"=>
                         A <= "01100";
@@ -59,10 +56,10 @@ begin
                         A <= "10000";
                         when others =>
                         A <= "11111";
+                        delay <= "1100";
                     end case; 
                     if (set /= '0') or (LOOKUP /= "0000") then
                     LOOKUP <= LOOKUP + 1;
-                    else A <= "11111";
                     end if;
                 end if;
         end if;
