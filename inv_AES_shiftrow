@@ -11,7 +11,7 @@ entity inv_AES_shiftrow is
 end inv_AES_shiftrow;
 
 architecture Behavioral of inv_AES_shiftrow is
-        component c_shift_ram_1 
+        component c_shift_ram_0 
         port ( 
         CLK : in STD_LOGIC;
         SCLR : in STD_LOGIC;
@@ -21,7 +21,7 @@ architecture Behavioral of inv_AES_shiftrow is
         );
         end component;
         
-        component inv_controll 
+        component inv_Lookup_controll 
         port ( 
         CLK, SCLR, SET: in std_logic;
         A : out STD_LOGIC_VECTOR (4 downto 0)
@@ -32,8 +32,8 @@ architecture Behavioral of inv_AES_shiftrow is
         signal Qout: STD_LOGIC_VECTOR (7 downto 0);
 begin
         
-        inv_SR_controll: inv_controll port map(A => A, SET => SET, CLK => CLK, SCLR => SCLR);
-        inv_OUTDATA: c_shift_ram_1 port map(D => D, A => A, Q => Qout, CLK => CLK, SCLR => SCLR);
+        inv_SR_controll: inv_Lookup_controll port map(A => A, SET => SET, CLK => CLK, SCLR => SCLR);
+        inv_OUTDATA: c_shift_ram_0 port map(D => D, A => A, Q => Qout, CLK => CLK, SCLR => SCLR);
         
         Q <= (others => '0') when A = "11111" else Qout;
 end Behavioral;
