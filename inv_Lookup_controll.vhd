@@ -16,9 +16,6 @@ architecture Behavioral of inv_Lookup_controll is
     signal delay :  std_logic_vector( 3 downto 0) := "1100";
 begin
     process (CLK) begin
-        if set = '0' then
-            delay <= "1100";
-        end if;
         if rising_edge(CLK) then
                 if (delay /= 0) and set = '1' then
                     delay <= delay - 1;
@@ -59,11 +56,12 @@ begin
                         when "1111"=>
                         A <= "11000";
                         when others =>
-                        A <= "11111";
                     end case; 
                     if (set /= '0') or (LOOKUP /= "0000") then
                     LOOKUP <= LOOKUP + 1;
-                    else A <= "11111";
+                    end if;
+                    if (set = '0') and (LOOKUP = "0011") then
+                        A <= "11111";  
                     end if;
                 end if;
         end if;
