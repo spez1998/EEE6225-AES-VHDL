@@ -22,7 +22,7 @@ architecture Behavioral of AES_shiftrow is
         );
         end component;
         
-        component controll 
+        component LOOKUP_controll 
         port ( 
         CLK, SCLR, SET: in std_logic;
         A : out STD_LOGIC_VECTOR (4 downto 0)
@@ -34,7 +34,7 @@ architecture Behavioral of AES_shiftrow is
 begin
 -----------------------------------------------------
 --        genrate A
-        SR_controll: controll port map(A => A, SET => SET, CLK => CLK, SCLR => SCLR); 
+        SR_controll: LOOKUP_controll port map(A => A, SET => SET, CLK => CLK, SCLR => SCLR); 
 -----------------------------------------------------   
 --        8 bit 25 register FIFO shifter
 --        input: 8bit data per clock 
