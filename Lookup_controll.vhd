@@ -1,26 +1,12 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-use ieee.std_logic_unsigned.all;
-use ieee.std_logic_arith.all;
-
-entity Lookup_controll is
-  Port ( CLK, SCLR, set: in std_logic;
-          A : out std_logic_vector(4 downto 0));
-end Lookup_controll;
-
-architecture Behavioral of Lookup_controll is
-  
-    signal LOOKUP :  std_logic_vector( 3 downto 0):= "0000"; -- 4 bits cases count for 16 cases 
-    signal delay :  std_logic_vector( 3 downto 0) := "1100"; -- set for the initial 13 cycles delay
-
 begin
     process (CLK) begin
+        
         if rising_edge(CLK) then
                 if (delay /= 0) and set = '1' then
                     delay <= delay - 1;
                     A <= "11111";                  
                 end if;
-                if (delay = 0) then 
+                if (delay = 1 or delay = 0) then 
                     case LOOKUP is
                         when "0000"=>
                         A <= "01100";
@@ -55,13 +41,12 @@ begin
                         when "1111"=>
                         A <= "10000";
                         when others =>
+                        A <= "11111";
+                        delay <= "1100";
                     end case; 
                     if (set /= '0') or (LOOKUP /= "0000") then
-                    LOOKUP <= LOOKUP + 1;
-                    end if;
-                    if (set = '0') and (LOOKUP = "0011") then
-                        A <= "11111";  
-                    end if;
+                        LOOKUP <= LOOKUP + 1;
+                    end if;               
                 end if;
         end if;
     end process;
