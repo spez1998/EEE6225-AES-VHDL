@@ -1,3 +1,16 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use ieee.std_logic_unsigned.all;
+use ieee.std_logic_arith.all;
+
+entity Lookup_controll is
+  Port ( CLK, SCLR, set: in std_logic;
+          A : out std_logic_vector(4 downto 0));
+end Lookup_controll;
+
+architecture Behavioral of Lookup_controll is
+    signal LOOKUP :  std_logic_vector( 3 downto 0):= "0000";
+    signal delay :  std_logic_vector( 3 downto 0) := "1100";
 begin
     process (CLK) begin
         
