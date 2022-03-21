@@ -19,7 +19,7 @@ begin
                     delay <= delay - 1;
                     A <= "11111";                  
                 end if;
-                if (delay = 1 or delay = 0) then 
+                if (delay = 0) then 
                     case LOOKUP is
                         when "0000"=>
                         A <= "01100";
